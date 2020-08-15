@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if user.is_authenticated %}
+  {% for product in products.all %}
+    <div class="row pt-3">
+      <div class="col-2"  style="cursor:pointer">
+        <img src="{{ product.image.url }}" class="img-fluid" width=120 height=150 alt="No IMage">
+      </div>
+    <div class="col-7">
+      <a href="{% url 'detail' product.id %}"><h3>{{ product.name }}</h3></a>
+    </div>
+  </div>
+
+{% endfor %}
+  {% else %}
+    <h1>Please Login or SignUp.</h1>
+  {% endif %}
+{% endblock %}
