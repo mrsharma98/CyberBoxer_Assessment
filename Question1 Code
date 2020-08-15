@@ -1,0 +1,28 @@
+def count(n,a):
+    c = 0
+    for i in range(n):
+        for j in range(n):
+            if a[i][j] == None:
+                c += 1
+    return c
+    
+def calc(n, k):
+    a = [[None for i in range(n)] for j in range(n)]
+    for i in range(k):
+        i,j = input().split()
+        i = int(i)
+        j = int(j)
+        if i>=n or j>=n:
+            print("row and column values should be within the matrix size.")
+        else:
+            x = int(input())
+            a[i][j] = x
+        c = count(n,a)
+        print("The empty cells is/are", c)
+        for i in a:
+            print(i)
+            
+n, k = input().split()
+n = int(n)
+k = int(k)
+calc(n,k)            
